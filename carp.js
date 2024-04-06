@@ -1,6 +1,29 @@
-
+let carp;
 let currentVelocityX = 0;
 let currentVelocityY = 0;
+let carpScale = 1
+
+const createCarpAnimations = (scene) => {
+  carp = scene.physics.add.sprite(100, screenHeight / 2, 'carp');
+
+  carp.setBounce(0);
+  carp.setCollideWorldBounds(true);
+
+  scene.anims.create({
+    key: 'left',
+    frames: [ { key: 'carp', frame: 1 } ],
+    frameRate: 20
+  });
+
+  scene.anims.create({
+    key: 'right',
+    frames: [ { key: 'carp', frame: 0 } ],
+    frameRate: 20
+  });
+
+  cursors = scene.input.keyboard.createCursorKeys();
+}
+
 handleCarpMovements = () => {
   if (cursors.left.isDown) {
     currentVelocityX = -carpSpeed
