@@ -3,6 +3,8 @@
 <head> 
     <meta charset="UTF-8" />
     <title>Carpitalist Game</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <script src="//cdn.jsdelivr.net/npm/phaser@3.11.0/dist/phaser.js"></script>
     <style type="text/css">
         body {
@@ -12,9 +14,12 @@
 </head>
 <body>
 <script type="text/javascript" src="utils.js"></script>
+<script type="text/javascript" src="music.js"></script>
 <script type="text/javascript" src="constants.js"></script>
 <script type="text/javascript" src="carp.js"></script>
 <script type="text/javascript" src="fishes.js"></script>
+<script type="text/javascript" src="score.js"></script>
+<script type="text/javascript" src="health.js"></script>
 <script type="text/javascript">
   var config = {
       type: Phaser.AUTO,
@@ -38,7 +43,7 @@
 
   function preload ()
   {
-      this.load.spritesheet('carp', 'assets/carp_sprite.png', { frameWidth: 82, frameHeight: 50 });
+      this.load.spritesheet('carp', 'assets/carp_sprite_new.png', { frameWidth: 333, frameHeight: 256 });
       this.load.audio('title', ['assets/music.mp3']);
 
       for (const background of backgrounds) {
@@ -50,21 +55,30 @@
           this.load.image(`${model}${direction}`, `assets/${model}${direction}.png`);
         }
       }
+
+      this.load.image('endgame', 'assets/endgame.png');
+      this.load.image('heart', 'assets/heart.png');
   }
 
   function create () {
       this.add.image(600, 450, backgrounds[0]);
-      // const music = this.sound.add('title');
-      // music.play();
-      createCarpAnimations(this)
+      initialize(this);
 
       setInterval(() => {
         generateRandomFish(this);
       }, randomValueBetween(1, 2) * 1000);
+
   }
 
   function update () {
     handleCarpMovements()
+  }
+
+  const initialize = (scene) => {
+    // initMusic(scene);
+    initCarp(scene);
+    initScore(scene);
+    initHealthBar(scene);
   }
 </script>
 
