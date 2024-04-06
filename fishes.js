@@ -26,7 +26,7 @@ const generateRandomFish = (scene) => {
 
 const collectFish = (carp, fish, scene) => {
   fish.destroy();
-  increaseScore();
+  increaseScore(scene);
   growCarp();
   updateHealth(scene, 10);
 }

@@ -38,6 +38,8 @@ const updateHealth = (scene, increment) => {
 
 const endGame = (scene) => {
   if (gameHasEnded) return;
+  pauseMusic();
+  playSound(scene, 'you_suck');
 
   gameHasEnded = true;
   const screenCenterX = scene.cameras.main.worldView.x + scene.cameras.main.width / 2;

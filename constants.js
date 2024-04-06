@@ -26,3 +26,13 @@ const endGameRectangleY = (screenHeight / 2) - (endGameRectangleHeight / 2);
 
 // backgrounds
 const backgrounds = createArray('background', 5)
+
+// sounds
+const sounds = {
+  'music': 'on_a_fishy_mission.mp3',
+  'excellent': 'excellent.wav', 
+  'holyshit': 'holyshit.wav', 
+  'impressive': 'impressive.wav', 
+  'sudden_death': 'sudden_death.wav', 
+  'you_suck': 'yousuck.wav'
+}

@@ -14,7 +14,7 @@
 </head>
 <body>
 <script type="text/javascript" src="utils.js"></script>
-<script type="text/javascript" src="music.js"></script>
+<script type="text/javascript" src="sounds.js"></script>
 <script type="text/javascript" src="constants.js"></script>
 <script type="text/javascript" src="carp.js"></script>
 <script type="text/javascript" src="fishes.js"></script>
@@ -43,32 +43,33 @@
 
   function preload ()
   {
-      this.load.spritesheet('carp', 'assets/carp_sprite_new.png', { frameWidth: 333, frameHeight: 256 });
-      this.load.audio('title', ['assets/music.mp3']);
+    this.load.spritesheet('carp', 'assets/carp_sprite_new.png', { frameWidth: 333, frameHeight: 256 });
+    // this.load.audio('title', ['assets/music.mp3']);
 
-      for (const background of backgrounds) {
-        this.load.image(background, `assets/${background}.png`);
+    for (const background of backgrounds) {
+      this.load.image(background, `assets/${background}.png`);
+    }
+
+    for (const direction of ['_left', '_right']) {
+      for (const model of fishModels) {
+        this.load.image(`${model}${direction}`, `assets/${model}${direction}.png`);
       }
+    }
 
-      for (const direction of ['_left', '_right']) {
-        for (const model of fishModels) {
-          this.load.image(`${model}${direction}`, `assets/${model}${direction}.png`);
-        }
-      }
+    for (const [key, value] of Object.entries(sounds)) this.load.audio(key, [`assets/sounds/${value}`]);
 
-      this.load.image('heart', 'assets/heart.png');
+    this.load.image('heart', 'assets/heart.png');
   }
 
   function create () {
-      this.add.image(600, 450, backgrounds[0]);
-      initialize(this);
+    this.add.image(600, 450, backgrounds[0]);
+    initialize(this);
 
-      fishes = this.physics.add.group();
+    fishes = this.physics.add.group();
 
-      setInterval(() => {
-        generateRandomFish(this);
-      }, randomValueBetween(1, 2) * 1000);
-
+    setInterval(() => {
+      generateRandomFish(this);
+    }, randomValueBetween(1, 2) * 1000);
   }
 
   function update () {
@@ -76,7 +77,7 @@
   }
 
   const initialize = (scene) => {
-    // initMusic(scene);
+    initMusic(scene);
     initCarp(scene);
     initScore(scene);
     initHealthBar(scene);
