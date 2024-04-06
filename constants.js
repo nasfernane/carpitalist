@@ -1,7 +1,7 @@
 // screen
 const screenWidth = 1200;
 const screenHeight = 900;
-const offScreenDistance = 100
+const offScreenDistance = 100;
 
 // carp
 const carpSpeed = 300;
@@ -25,10 +25,12 @@ const endGameRectangleX = 0;
 const endGameRectangleY = (screenHeight / 2) - (endGameRectangleHeight / 2);
 
 // backgrounds
-const backgrounds = createArray('background', 5)
+const backgrounds = createArray('background', 5);
 
 // fishes
-const fishModels = createArray('fish', 18)
+const fishModels = createArray('fish', 18);
+
+const plantModels = createArray('plant', 10);
 
 // sounds
 const sounds = {

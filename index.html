@@ -18,6 +18,7 @@
 <script type="text/javascript" src="constants.js"></script>
 <script type="text/javascript" src="carp.js"></script>
 <script type="text/javascript" src="fishes.js"></script>
+<script type="text/javascript" src="plants.js"></script>
 <script type="text/javascript" src="score.js"></script>
 <script type="text/javascript" src="health.js"></script>
 <script type="text/javascript">
@@ -49,6 +50,10 @@
       this.load.image(background, `assets/backgrounds/${background}.png`);
     }
 
+    for (const plant of plantModels) {
+      this.load.image(plant, `assets/plants/${plant}.png`);
+    }
+
     for (const direction of ['_left', '_right']) {
       for (const model of fishModels) {
         this.load.image(`${model}${direction}`, `assets/fishes/${model}${direction}.png`);
@@ -65,10 +70,15 @@
     initialize(this);
 
     fishes = this.physics.add.group();
+    plants = this.physics.add.group();
 
     setInterval(() => {
       generateRandomFish(this);
     }, randomValueBetween(1, 2) * 1000);
+
+    setInterval(() => {
+      generateRandomPlant(this);
+    }, randomValueBetween(10, 20) * 1000);
   }
 
   function update () {
