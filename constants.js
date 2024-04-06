@@ -16,5 +16,13 @@ const healthBarX = 50;
 const healthBarY = 50;
 const maxHealth = 100;
 
+// end game
+const endGameRectangleWidth = screenWidth;
+const endGameRectangleHeight = 150;
+const endGameRectangleColor = 0x000000;
+const endGameRectangleOpacity = 0.5;
+const endGameRectangleX = 0;
+const endGameRectangleY = (screenHeight / 2) - (endGameRectangleHeight / 2);
+
 // backgrounds
 const backgrounds = createArray('background', 5)

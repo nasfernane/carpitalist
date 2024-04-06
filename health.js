@@ -1,6 +1,8 @@
 let healthBar;
 let heartIcon;
-let currentHealth = 100;
+let currentHealth = 10;
+let endGameText;
+let gameHasEnded = false;
 
 function initHealthBar(scene) {
     healthBar = scene.add.graphics();
@@ -16,7 +18,7 @@ function initHealthBar(scene) {
 
     setInterval(() => {
       updateHealth(scene, -5)
-    }, 2000);
+    }, 1000);
 }
 
 const updateHealth = (scene, increment) => {
@@ -31,6 +33,16 @@ const updateHealth = (scene, increment) => {
 }
 
 const endGame = (scene) => {
+  if (gameHasEnded) return;
+
+  gameHasEnded = true;
+  const screenCenterX = scene.cameras.main.worldView.x + scene.cameras.main.width / 2;
+  const screenCenterY = scene.cameras.main.worldView.y + scene.cameras.main.height / 2;
+
+  const bandeau = scene.add.graphics();
+  bandeau.fillStyle(endGameRectangleColor, endGameRectangleOpacity);
+  bandeau.fillRect(endGameRectangleX, endGameRectangleY, endGameRectangleWidth, endGameRectangleHeight);
+
   scene.scene.pause();
-  scene.add.image(600, 450, 'endgame');
+  scoreText = scene.add.text(screenCenterX, screenCenterY, 'YOU DIED', { fontSize: '70px', fill: '#CB1D11', fontFamily: '"Press Start 2P"'}).setOrigin(0.5);
 }
