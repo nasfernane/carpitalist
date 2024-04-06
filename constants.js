@@ -27,6 +27,9 @@ const endGameRectangleY = (screenHeight / 2) - (endGameRectangleHeight / 2);
 // backgrounds
 const backgrounds = createArray('background', 5)
 
+// fishes
+const fishModels = createArray('fish', 18)
+
 // sounds
 const sounds = {
   'music': 'on_a_fishy_mission.mp3',

@@ -43,16 +43,15 @@
 
   function preload ()
   {
-    this.load.spritesheet('carp', 'assets/carp_sprite_new.png', { frameWidth: 333, frameHeight: 256 });
-    // this.load.audio('title', ['assets/music.mp3']);
+    this.load.spritesheet('carp', 'assets/carp_sprite.png', { frameWidth: 333, frameHeight: 256 });
 
     for (const background of backgrounds) {
-      this.load.image(background, `assets/${background}.png`);
+      this.load.image(background, `assets/backgrounds/${background}.png`);
     }
 
     for (const direction of ['_left', '_right']) {
       for (const model of fishModels) {
-        this.load.image(`${model}${direction}`, `assets/${model}${direction}.png`);
+        this.load.image(`${model}${direction}`, `assets/fishes/${model}${direction}.png`);
       }
     }
 

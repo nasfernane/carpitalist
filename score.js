@@ -3,7 +3,7 @@ let scoreText;
 
 
 const initScore = (scene) => {
-  scoreText = scene.add.text(10, 15, 'Score: 0', { fontSize: '24px', fill: '#fff', fontFamily: '"Press Start 2P"'}).setText(`Score:${score}`);
+  scoreText = scene.add.text(10, 20, 'Score: 0', { fontSize: '24px', fill: '#fff', fontFamily: '"Press Start 2P"'}).setText(`Score:${score}`);
 }
 
 const increaseScore = (scene, points = 10) => {

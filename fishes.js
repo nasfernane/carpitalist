@@ -1,4 +1,3 @@
-const fishModels = ['fish_1', 'fish_2', 'fish_3', 'fish_4']
 const directions = ['_left', 'bottom_left', 'top_left', '_right', 'bottom_right', 'top_right']
 
 const generateRandomFish = (scene) => {
