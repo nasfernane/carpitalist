@@ -20,8 +20,7 @@ const generateRandomFish = (scene) => {
     }
   });
 
-  scene.physics.add.collider(carp, fish);
-  scene.physics.add.overlap(carp, fish, () => collectFish(carp, fish, scene), null, scene);
+  scene.physics.add.collider(carp, fish, () => collectFish(carp, fish, scene));
 }
 
 const collectFish = (carp, fish, scene) => {
