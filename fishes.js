@@ -1,34 +1,34 @@
 const fishModels = ['fish_1', 'fish_2', 'fish_3', 'fish_4']
 const directions = ['_left', 'bottom_left', 'top_left', '_right', 'bottom_right', 'top_right']
 
-const fishes = [
-  {
-    direction: '_left',
-    startX: 1200,
-    startY: 450,
-    endX: -100,
-    endY: 200,
-    duration: 9000
-  }
-]
-
 const generateRandomFish = (scene) => {
   const movementDirection = directions[Math.floor(Math.random() * directions.length)]
   const modelDirection = movementDirection.includes('_left') ? '_left' : '_right'
   const model = fishModels[Math.floor(Math.random() * fishModels.length)] + modelDirection
 
   const { startX, startY, endX, endY } = randomFishTrajectory(movementDirection)
-  fish = scene.physics.add.sprite(startX, startY, model);
-
+  const fish = fishes.create(startX, startY, model);
+ 
   scene.tweens.add({
     targets: fish,
     x: endX,
     y: endY,
     duration: randomFishSpeed(),
+    ease: 'Linear',
     onComplete: function () {
         fish.destroy();
     }
   });
+
+  scene.physics.add.collider(carp, fish);
+  scene.physics.add.overlap(carp, fish, () => collectFish(carp, fish, scene), null, scene);
+}
+
+const collectFish = (carp, fish, scene) => {
+  fish.destroy();
+  increaseScore();
+  growCarp();
+  updateHealth(scene, 10);
 }
 
 const randomFishTrajectory = (movementDirection) => {

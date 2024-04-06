@@ -76,3 +76,8 @@ handleCarpMovements = () => {
   carp.setVelocityX(currentVelocityX);
   carp.setVelocityY(currentVelocityY);
 }
+
+growCarp = () => {
+  carpScale += 0.01;
+  carp.setScale(carpScale);
+}

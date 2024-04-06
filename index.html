@@ -56,13 +56,14 @@
         }
       }
 
-      this.load.image('endgame', 'assets/endgame.png');
       this.load.image('heart', 'assets/heart.png');
   }
 
   function create () {
       this.add.image(600, 450, backgrounds[0]);
       initialize(this);
+
+      fishes = this.physics.add.group();
 
       setInterval(() => {
         generateRandomFish(this);
