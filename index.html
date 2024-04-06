@@ -11,12 +11,15 @@
     </style>
 </head>
 <body>
-
+<script type="text/javascript" src="utils.js"></script>
+<script type="text/javascript" src="constants.js"></script>
+<script type="text/javascript" src="carp.js"></script>
+<script type="text/javascript" src="fishes.js"></script>
 <script type="text/javascript">
     var config = {
         type: Phaser.AUTO,
-        width: 1200,
-        height: 900,
+        width: screenWidth,
+        height: screenHeight,
         physics: {
             default: 'arcade',
             arcade: {
@@ -31,30 +34,32 @@
         }
     };
 
-    var player;
-    var platforms;
+    var carp;
 
     var game = new Phaser.Game(config);
 
-    let currentVelocityX = 0;
-    let currentVelocityY = 0;
+   
 
     function preload ()
     {
-        this.load.image('background1', 'assets/background_1.png');
-        this.load.image('background2', 'assets/background_2.png');
-        this.load.image('background3', 'assets/background_3.png');
         this.load.spritesheet('carp', 'assets/carp_sprite.png', { frameWidth: 82, frameHeight: 50 });
         this.load.audio('title', ['assets/music.mp3']);
+
+        for (const background of backgrounds) {
+          this.load.image(background, `assets/${background}.png`);
+        }
+
+        for (const direction of ['_left', '_right']) {
+          for (const model of fishModels) {
+            this.load.image(`${model}${direction}`, `assets/${model}${direction}.png`);
+          }
+        }
     }
 
-    function create ()
-    {
-        this.add.image(600, 450, 'background1');
-        
+    function create () {
+        this.add.image(600, 450, backgrounds[0]);
         // const music = this.sound.add('title');
         // music.play();
-
         carp = this.physics.add.sprite(100, 450, 'carp');
 
         carp.setBounce(0);
@@ -74,39 +79,14 @@
 
         cursors = this.input.keyboard.createCursorKeys();
 
-        this.physics.add.collider(carp, platforms)
+        setInterval(() => {
+          generateRandomFish(this);
+        }, randomValueBetween(1, 2) * 1000);
     }
 
     function update () {
-      if (cursors.left.isDown) {
-        currentVelocityX = -160
-        carp.anims.play('left', true);
-      } else if (cursors.right.isDown) {
-        currentVelocityX = 160
-        carp.anims.play('right', true);
-      } else {
-         currentVelocityX = currentVelocityX < 0 ? -70 : 70
-          carp.anims.play('right', true);
-      }
-
-      if (cursors.up.isDown) {
-        currentVelocityY = -160
-      } else if (cursors.down.isDown) {
-        currentVelocityY = 160
-      } else {
-        currentVelocityY = currentVelocityY < 0 ? -70 : 70
-      }
-
-
-      carp.setVelocityX(currentVelocityX);
-      carp.setVelocityY(currentVelocityY);
-
-      // if (cursors.up.isDown && carp.body.touching.down)
-      // {
-      //     carp.setVelocityY(-330);
-      // }
+      handleCarpMovements()
     }
-
 </script>
 
 </body>
