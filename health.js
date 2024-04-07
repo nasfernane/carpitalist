@@ -1,6 +1,6 @@
 let healthBar;
 let heartIcon;
-let currentHealth = 10;
+let currentHealth = 100;
 let endGameText;
 let gameHasEnded = false;
 

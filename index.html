@@ -126,7 +126,6 @@
 
     const transitionTexts = transitions[currentLevel];
     for (const text of transitionTexts) {
-      console.log(text)
       let t = scene.add.text(screenCenterX, screenCenterY + text.position, text.label, { fontSize: text.fontSize, fill: '#fff', fontFamily: '"Press Start 2P"'}).setOrigin(0.5);
 
       scene.transitionGroup.add(t);
