@@ -39,5 +39,11 @@ const sounds = {
   'holyshit': 'holyshit.wav', 
   'impressive': 'impressive.wav', 
   'sudden_death': 'sudden_death.wav', 
-  'you_suck': 'yousuck.wav'
+  'you_suck': 'yousuck.wav',
+  'water_in': 'water_in.wav',
+  'eat_1': 'eat_1.wav',
+  'eat_2': 'eat_2.wav',
+  'eat_3': 'eat_3.wav',
+  'eat_4': 'eat_4.wav',
+  'eat_5': 'eat_5.wav'
 }

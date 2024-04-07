@@ -23,6 +23,7 @@ const generateRandomFish = (scene) => {
 }
 
 const collectFish = (carp, fish, scene) => {
+  playEatSound(scene);
   fish.destroy();
   increaseScore(scene);
   growCarp();
