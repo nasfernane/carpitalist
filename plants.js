@@ -12,9 +12,6 @@ const generateRandomPlant = (scene) => {
           scene.physics.add.collider(carp, plant, () => collectPlant(carp, plant, scene));
       }
   });
- 
-
-  // scene.physics.add.collider(carp, plant, () => collectPlant(carp, plant, scene));
 }
 
 const collectPlant = (carp, plant, scene) => {

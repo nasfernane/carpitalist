@@ -3,6 +3,41 @@ const screenWidth = 1200;
 const screenHeight = 900;
 const offScreenDistance = 100;
 
+// levels
+const levelDuration = 60000;
+const levelsAmount = 3;
+
+// transitions
+const transitions = [
+  [
+    { position: -10, fontSize: '36px', label: "Hello Carp'tain!" },
+    { position: 40, fontSize: '20px', label: "Your mission here is simple:" },
+    { position: 80, fontSize: '20px', label: "You gotta eat everything that crosses your path" },
+    { position: 120, fontSize: '20px', label: "Hunger is irrelevant, you need to get it all!" },
+    { position: 160, fontSize: '20px', label: "Why? Erm... I don't know... Freedom?" },
+    { position: 200, fontSize: '20px', label: "Yes, definitely freedom!" },
+    { position: 300, fontSize: '20px', label: "Press $ to start" },
+  ],
+  [
+    { position: -10, fontSize: '36px', label: "What the fuck was that ?" },
+    { position: 40, fontSize: '20px', label: "You barely ate anything..." },
+    { position: 80, fontSize: '20px', label: "Stop fooling around like a Marlin Monroe and" },
+    { position: 120, fontSize: '20px', label: " become Gengis Kharp, conqueror of the seas!" },
+    { position: 200, fontSize: '20px', label: "You need to consume more... MORE!!!" },
+    { position: 300, fontSize: '20px', label: "You still need to press $ to continue, tho" },
+  ],
+  [
+    { position: -10, fontSize: '36px', label: "It's Kawai Haiku time !" },
+    { position: 40, fontSize: '20px', label: "Take some time to rest and reflect" },
+    { position: 80, fontSize: '20px', label: "on the consequences of your actions..." },
+    { position: 140, fontSize: '18px', label: "Empty seas, silent tides", fontStyle: 'italic' },
+    { position: 180, fontSize: '18px', label: "Woosh !", fontStyle: 'italic' },
+    { position: 220, fontSize: '18px', label: "We're all gonna die", fontStyle: 'italic' },
+    { position: 300, fontSize: '18px', label: "Remember the key to press ?" },
+  ],
+]
+
+
 // carp
 const carpSpeed = 300;
 const carpInerty = carpSpeed / 3;
@@ -25,7 +60,7 @@ const endGameRectangleX = 0;
 const endGameRectangleY = (screenHeight / 2) - (endGameRectangleHeight / 2);
 
 // backgrounds
-const backgrounds = createArray('background', 5);
+const backgrounds = createArray('background', 6);
 
 // fishes
 const fishModels = createArray('fish', 18);

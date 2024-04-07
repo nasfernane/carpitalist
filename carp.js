@@ -19,26 +19,26 @@ createCarpAnimations = (scene) => {
   scene.anims.create({
     key: 'left',
     frames: scene.anims.generateFrameNumbers('carp', { start: 0, end: 2 }),
-    frameRate: 5,
+    frameRate: 10,
     repeat: 0
   });
 
   scene.anims.create({
     key: 'standingLeft',
     frames: [ { key: 'carp', frame: 2 } ],
-    frameRate: 5,
+    frameRate: 20,
   });
 
   scene.anims.create({
     key: 'standingRight',
     frames: [ { key: 'carp', frame: 0 } ],
-    frameRate: 5,
+    frameRate: 20,
   });
 
   scene.anims.create({
     key: 'right',
     frames: scene.anims.generateFrameNumbers('carp', { start: 2, end: 4 }),
-    frameRate: 5,
+    frameRate: 10,
     repeat: 0
   });
  

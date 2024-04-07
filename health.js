@@ -1,6 +1,6 @@
 let healthBar;
 let heartIcon;
-let currentHealth = 100;
+let currentHealth = 10;
 let endGameText;
 let gameHasEnded = false;
 
@@ -17,8 +17,10 @@ function initHealthBar(scene) {
     heartIcon.displayHeight = 30;
 
     setInterval(() => {
-      updateHealth(scene, -5)
-    }, 1000);
+      if (!inTransition) {
+        updateHealth(scene, -5)
+      }
+    }, 2000);
 }
 
 const updateHealth = (scene, increment) => {
@@ -38,12 +40,13 @@ const updateHealth = (scene, increment) => {
 
 const endGame = (scene) => {
   if (gameHasEnded) return;
-  pauseMusic();
+  music.pause();
   playSound(scene, 'you_suck');
+  // pauseMusic(scene, 200, 'you_suck');
+  
 
   gameHasEnded = true;
-  const screenCenterX = scene.cameras.main.worldView.x + scene.cameras.main.width / 2;
-  const screenCenterY = scene.cameras.main.worldView.y + scene.cameras.main.height / 2;
+  const {screenCenterX, screenCenterY } = getScreenCenterCoordinates(scene)
 
   const endGameRectangle = scene.add.graphics();
   endGameRectangle.fillStyle(endGameRectangleColor, endGameRectangleOpacity);
