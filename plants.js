@@ -9,12 +9,13 @@ const generateRandomPlant = (scene) => {
       duration: 1000,
       ease: 'Linear',
       onComplete: () => {
-          scene.physics.add.collider(carp, plant, () => collectPlant(carp, plant, scene));
+          scene.physics.add.collider(carp, plant, () => collectPlant(plant, scene));
       }
   });
 }
 
-const collectPlant = (carp, plant, scene) => {
+const collectPlant = (plant, scene) => {
+  playSound(scene, 'eat_2')
   plant.destroy();
   increaseScore(scene);
   growCarp();

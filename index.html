@@ -13,6 +13,7 @@
     </style>
 </head>
 <body>
+<div style="font-family: 'Press Start 2P'; visibility: hidden; height: 0px;">.</div>
 <script type="text/javascript" src="utils.js"></script>
 <script type="text/javascript" src="sounds.js"></script>
 <script type="text/javascript" src="constants.js"></script>
@@ -89,7 +90,7 @@
 
     setInterval(() => {
       if (!inTransition && currentLevel < 3) generateRandomFish(scene);
-    }, randomValueBetween(0.8, 1.5) * 1000);
+    }, randomValueBetween(inTransition ? 7 : 0.8, inTransition ? 7 : 1.5) * 1000);
 
     setInterval(() => {
       if (!inTransition && currentLevel < 3) generateRandomPlant(scene);
@@ -124,6 +125,7 @@
       repeat: -1,
       ease: 'Sine.easeInOut',
     });
+
 
     const {screenCenterX, screenCenterY } = getScreenCenterCoordinates(scene);
 
