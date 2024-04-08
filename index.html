@@ -49,6 +49,7 @@
   {
     this.load.spritesheet('carp', 'assets/carp_sprite.png', { frameWidth: 333, frameHeight: 256 });
     this.load.spritesheet('carp_big', 'assets/carp_big.png', { frameWidth: 608, frameHeight: 535 });
+    this.load.spritesheet('carp_big_dead', 'assets/carp_big_dead.png', { frameWidth: 608, frameHeight: 535 });
     
 
     for (const background of backgrounds) {
@@ -95,9 +96,11 @@
     }, randomValueBetween(8, 16) * 1000);
   }
 
-  const transitionLevel = (scene) => {
+  const transitionLevel = (scene, isEndgame = false) => {
+    if (isEndgame) currentLevel = 3
+
     inTransition = true;
-    if (currentLevel > 0) {
+    if (currentLevel > 0 || isEndgame) {
       pauseMusic(scene);
       clearRessources(scene);
     }
@@ -107,8 +110,8 @@
     let transitionBackground = scene.add.image(600, 450, backgrounds[0]);
     bigCarps = scene.physics.add.group();
 
-    let bigCarp = bigCarps.create(((screenWidth / 2) + 30), 200, 'carp_big');
-   
+    let bigCarp = bigCarps.create(((screenWidth / 2) + 30), 200, isEndgame ? 'carp_big_dead' : 'carp_big');
+
     bigCarp.setScale(0.5);
 
     scene.tweens.add({
@@ -126,13 +129,14 @@
 
     const transitionTexts = transitions[currentLevel];
     for (const text of transitionTexts) {
-      let t = scene.add.text(screenCenterX, screenCenterY + text.position, text.label, { fontSize: text.fontSize, fill: '#fff', fontFamily: '"Press Start 2P"'}).setOrigin(0.5);
+      let t = scene.add.text(screenCenterX, screenCenterY + text.position, text.label, { fontSize: text.fontSize, fill: '#fff', fontFamily: '"Press Start 2P"', fontStyle: text.fontStyle ?? ''}).setOrigin(0.5);
 
       scene.transitionGroup.add(t);
     }
 
     scene.transitionGroup.add(bigCarp);
     scene.transitionGroup.add(transitionBackground);
+    if (isEndgame) resetGame();
 
     scene.input.keyboard.on('keydown', (event) => {
       if (inTransition && event.key === '$') {
@@ -142,10 +146,10 @@
   } 
 
   const nextLevel = (scene) => {
+    console.log('currentLevel', currentLevel)
     inTransition = false;
     currentLevel++;
     scene.transitionGroup.clear(true, true);
-    // clearRessources(scene);
     initialize(scene);
 
     currentLevel === 1 ? initMusic(scene) : resumeMusic(scene);
@@ -160,6 +164,12 @@
 
   const clearRessources = (scene) => {
     scene.transitionGroup.clear(true, true);
+  }
+
+  const resetGame = () => {
+    currentLevel = 0;
+    score = 0;
+    currentHealth = maxHealth;
   }
   
 </script>

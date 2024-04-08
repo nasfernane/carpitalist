@@ -19,24 +19,33 @@ const transitions = [
     { position: 300, fontSize: '20px', label: "Press $ to start" },
   ],
   [
-    { position: -10, fontSize: '36px', label: "What the fuck was that ?" },
+    { position: -10, fontSize: '36px', label: "What the fuck was that?" },
     { position: 40, fontSize: '20px', label: "You barely ate anything..." },
     { position: 80, fontSize: '20px', label: "Stop fooling around like a Marlin Monroe and" },
-    { position: 120, fontSize: '20px', label: " become Gengis Kharp, conqueror of the seas!" },
+    { position: 120, fontSize: '20px', label: "become Gengis Kharp, conqueror of the abysses!" },
     { position: 200, fontSize: '20px', label: "You need to consume more... MORE!!!" },
     { position: 300, fontSize: '20px', label: "You still need to press $ to continue, tho" },
   ],
   [
-    { position: -10, fontSize: '36px', label: "It's Kawai Haiku time !" },
+    { position: -10, fontSize: '36px', label: "It's Kawai Haiku time!" },
     { position: 40, fontSize: '20px', label: "Take some time to rest and reflect" },
     { position: 80, fontSize: '20px', label: "on the consequences of your actions..." },
     { position: 140, fontSize: '18px', label: "Empty seas, silent tides", fontStyle: 'italic' },
-    { position: 180, fontSize: '18px', label: "Woosh !", fontStyle: 'italic' },
+    { position: 180, fontSize: '18px', label: "Woosh!", fontStyle: 'italic' },
     { position: 220, fontSize: '18px', label: "We're all gonna die", fontStyle: 'italic' },
-    { position: 300, fontSize: '18px', label: "Remember the key to press ?" },
+    { position: 300, fontSize: '18px', label: "Remember the key to press?" },
+  ],
+  [
+    { position: -10, fontSize: '36px', label: "Remarkarpable!" },
+    { position: 40, fontSize: '20px', label: "You single-handedly extinguished several species" },
+    { position: 80, fontSize: '20px', label: "and devastated countless corals" },
+    { position: 120, fontSize: '20px', label: "An entire ecosystem collapsed due to your sole efforts!" },
+    { position: 160, fontSize: '18px', label: "In the end, there were no resources left" },
+    { position: 200, fontSize: '18px', label: "and you met a tragic demise... but it was totally" },
+    { position: 240, fontSize: '18px', label: "worthwhile to assert your alpha carp dominance" },
+    { position: 300, fontSize: '18px', label: "Press $ to face another inevitable doom" },
   ],
 ]
-
 
 // carp
 const carpSpeed = 300;

@@ -1,6 +1,6 @@
 let healthBar;
 let heartIcon;
-let currentHealth = 100;
+let currentHealth = 10;
 let endGameText;
 let gameHasEnded = false;
 
@@ -42,8 +42,6 @@ const endGame = (scene) => {
   if (gameHasEnded) return;
   music.pause();
   playSound(scene, 'you_suck');
-  // pauseMusic(scene, 200, 'you_suck');
-  
 
   gameHasEnded = true;
   const {screenCenterX, screenCenterY } = getScreenCenterCoordinates(scene)
@@ -53,5 +51,12 @@ const endGame = (scene) => {
   endGameRectangle.fillRect(endGameRectangleX, endGameRectangleY, endGameRectangleWidth, endGameRectangleHeight);
 
   scene.scene.pause();
-  scoreText = scene.add.text(screenCenterX, screenCenterY, 'YOU DIED', { fontSize: '70px', fill: '#CB1D11', fontFamily: '"Press Start 2P"'}).setOrigin(0.5);
+  scene.add.text(screenCenterX, screenCenterY, 'YOU DIED', { fontSize: '70px', fill: '#CB1D11', fontFamily: '"Press Start 2P"'}).setOrigin(0.5);
+
+  setTimeout(() => {
+    scene.scene.resume();
+    transitionLevel(scene, true)
+  }, 4000);
+
+  
 }
