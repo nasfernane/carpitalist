@@ -50,6 +50,7 @@ const transitions = [
 // carp
 const carpSpeed = 300;
 const carpInerty = carpSpeed / 3;
+const carpStartingScale = 0.3;
 
 // health bar
 const healthBarWidth = 200;

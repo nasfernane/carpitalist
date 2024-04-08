@@ -1,7 +1,7 @@
 let carp;
 let currentVelocityX = 0;
 let currentVelocityY = 0;
-let carpScale = 0.3
+let carpScale = carpStartingScale;
 let currentDirection = 'right';
 
 const initCarp = (scene) => {

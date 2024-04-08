@@ -12,5 +12,5 @@ const increaseScore = (scene, points = 10) => {
 
   if (score == 300) playSound(scene, 'impressive')
   if (score == 1000) playSound(scene, 'excellent')
-  if (score == 2000) playSound(scene, 'holyshit')
+  if (score == 1500) playSound(scene, 'holyshit')
 }

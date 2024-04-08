@@ -56,7 +56,7 @@ const endGame = (scene) => {
   setTimeout(() => {
     scene.scene.resume();
     transitionLevel(scene, true)
-  }, 4000);
+  }, 4500);
 
   
 }

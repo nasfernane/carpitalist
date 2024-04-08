@@ -146,7 +146,7 @@
   } 
 
   const nextLevel = (scene) => {
-    console.log('currentLevel', currentLevel)
+    if (currentLevel == 2) playSound(scene, 'sudden_death');
     inTransition = false;
     currentLevel++;
     scene.transitionGroup.clear(true, true);
@@ -170,6 +170,7 @@
     currentLevel = 0;
     score = 0;
     currentHealth = maxHealth;
+    carpScale = carpStartingScale;
   }
   
 </script>
