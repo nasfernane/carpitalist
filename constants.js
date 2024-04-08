@@ -70,7 +70,7 @@ const endGameRectangleX = 0;
 const endGameRectangleY = (screenHeight / 2) - (endGameRectangleHeight / 2);
 
 // backgrounds
-const backgrounds = createArray('background', 6);
+const backgrounds = createArray('background', 4);
 
 // fishes
 const fishModels = createArray('fish', 18);
@@ -85,7 +85,6 @@ const sounds = {
   'impressive': 'impressive.wav', 
   'sudden_death': 'sudden_death.wav', 
   'you_suck': 'yousuck.wav',
-  'water_in': 'water_in.wav',
   'eat_1': 'eat_1.wav',
   'eat_2': 'eat_2.wav',
   'eat_3': 'eat_3.wav',
